@@ -1,0 +1,422 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>Documentation 8 Queens Puzzle</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"MS Gothic";
+	panose-1:2 11 6 9 7 2 5 8 2 4;}
+@font-face
+	{font-family:"MS Gothic";
+	panose-1:2 11 6 9 7 2 5 8 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@MS Gothic";
+	panose-1:2 11 6 9 7 2 5 8 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+h1
+	{mso-style-link:"Überschrift 1 Zchn";
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#365F91;}
+h2
+	{mso-style-link:"Überschrift 2 Zchn";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	font-style:italic;}
+h3
+	{mso-style-link:"Überschrift 3 Zchn";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Cambria","serif";}
+h4
+	{mso-style-link:"Überschrift 4 Zchn";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:11.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:22.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Kopfzeile Zchn";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Fußzeile Zchn";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:10.0pt;
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-link:"Titel Zchn";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	text-align:center;
+	line-height:115%;
+	font-size:16.0pt;
+	font-family:"Cambria","serif";
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Sprechblasentext Zchn";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+span.berschrift1Zchn
+	{mso-style-name:"Überschrift 1 Zchn";
+	mso-style-link:"Überschrift 1";
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+span.berschrift2Zchn
+	{mso-style-name:"Überschrift 2 Zchn";
+	mso-style-link:"Überschrift 2";
+	font-family:"Cambria","serif";
+	font-weight:bold;
+	font-style:italic;}
+span.KopfzeileZchn
+	{mso-style-name:"Kopfzeile Zchn";
+	mso-style-link:Kopfzeile;}
+span.FuzeileZchn
+	{mso-style-name:"Fußzeile Zchn";
+	mso-style-link:Fußzeile;}
+span.berschrift3Zchn
+	{mso-style-name:"Überschrift 3 Zchn";
+	mso-style-link:"Überschrift 3";
+	font-family:"Cambria","serif";
+	font-weight:bold;}
+span.berschrift4Zchn
+	{mso-style-name:"Überschrift 4 Zchn";
+	mso-style-link:"Überschrift 4";
+	font-family:"Calibri","sans-serif";
+	font-weight:bold;}
+span.TitelZchn
+	{mso-style-name:"Titel Zchn";
+	mso-style-link:Titel;
+	font-family:"Cambria","serif";
+	font-weight:bold;}
+span.SprechblasentextZchn
+	{mso-style-name:"Sprechblasentext Zchn";
+	mso-style-link:Sprechblasentext;
+	font-family:"Tahoma","sans-serif";}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:70.85pt 70.85pt 2.0cm 70.85pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=DE-AT link=blue vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoTitle><span lang=DE>Damenproblem <a href="http://pertiller.me">by David Pertiller</a></span></p>
+
+<h1><a name="_Toc341647358"></a><a name="_Toc341647344"><span lang=DE>Zweck:</span></a></h1>
+
+<p class=MsoNormal><span lang=DE>In dieser Übung wurde das „8 Damenproblem“ mit
+Hilfe eines genetischen Algorithmus gelöst. Hierbei gilt es, 8 Damen auf einem
+8x8 Brett so anzuordnen, dass sich keine der Damen weder horizontal, vertikal noch
+diagonal schlägt. Dazu wurde eine Population bestehend aus 1000 Genomen
+erstellt und pro Durchgang 2 vielversprechende Genome (die sich möglichst wenig
+schlagen) ausgesucht und aus deren Kreuzung 2 Nachkommen erzeugt und in weiter
+Folge mutiert. Die Kinder ersetzen daraufhin ihre Eltern, wodurch bezweckt bzw.
+versucht wird, die Lösungsgüte stets zu verbessern. </span></p>
+
+<h1><a name="_Toc341647361"></a><a name="_Toc341647347"><span lang=DE>Screenshot:</span></a></h1>
+
+<p class=MsoNormal><img width=527 height=620 id="Screenshot"
+src="Screenshot.png"></p>
+
+<h1><a name="_Toc341647362"></a><a name="_Toc341647348"><span lang=DE>Steuerung:</span></a></h1>
+
+<p class=MsoNormal><span lang=DE>Es gibt einen manuellen und einen
+automatischen Modus</span></p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal><b><span lang=DE>Taste [Enter]</span></b><span lang=DE> = Eine
+     neue Lösung generieren und anzeigen</span></li>
+ <li class=MsoNormal><b><span lang=DE>Taste 1</span></b><span lang=DE> = Erzeugung
+     von 50.000 Lösungen und Protokollierung für Auswertung</span></li>
+</ul>
+
+<h1><a name="_Toc341647363"></a><a name="_Toc341647349"><span lang=DE>Fitness
+Funktion:</span></a></h1>
+
+<h2><span lang=DE style='font-size:11.0pt;line-height:115%;font-family:"Calibri","sans-serif";
+font-weight:normal;font-style:normal'>Die Fitness Funktion prüft die Anzahl der
+NICHT-Kollisionen. Ein Genom kann eine maximale Fitness von 28 haben. Bei jeder
+Kollision mit einer Dame auf dem Brett (horizontal, vertikal oder Diagonal),
+wird ein Fitnesspunkt abgezogen. Die schlechteste Fitness beträgt daher 0. Die
+Fitness wurde deswegen aufsteigend gewählt, damit dies in der Auswertung besser
+darstellbar ist.</span></h2>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
+color:blue;background:white'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
+color:blue;background:white'>int</span><span style='font-size:9.5pt;font-family:
+Consolas;color:black;background:white'> collisions = 0;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
+color:blue;background:white'>for</span><span style='font-size:9.5pt;font-family:
+Consolas;color:black;background:white'>(</span><span style='font-size:9.5pt;
+font-family:Consolas;color:blue;background:white'>int</span><span
+style='font-size:9.5pt;font-family:Consolas;color:black;background:white'> i =
+0; i &lt; </span><span style='font-size:9.5pt;font-family:Consolas;color:#6F008A;
+background:white'>n</span><span style='font-size:9.5pt;font-family:Consolas;
+color:black;background:white'>; ++i) </span><span style='font-size:9.5pt;
+font-family:Consolas;color:green;background:white'>//compare every gene with
+every other for collisions</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
+color:black;background:white'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
+color:black;background:white'>  </span><span style='font-size:9.5pt;font-family:
+Consolas;color:blue;background:white'>for</span><span style='font-size:9.5pt;
+font-family:Consolas;color:black;background:white'>(</span><span
+style='font-size:9.5pt;font-family:Consolas;color:blue;background:white'>int</span><span
+style='font-size:9.5pt;font-family:Consolas;color:black;background:white'> j =
+i+1; j &lt; </span><span style='font-size:9.5pt;font-family:Consolas;
+color:#6F008A;background:white'>n</span><span style='font-size:9.5pt;
+font-family:Consolas;color:black;background:white'>; ++j) </span><span
+style='font-size:9.5pt;font-family:Consolas;color:green;background:white'>//we
+don't need to compare backwards too, just forward</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
+color:black;background:white'>  {</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
+color:black;background:white'>   </span><span style='font-size:9.5pt;
+font-family:Consolas;color:blue;background:white'>int</span><span
+style='font-size:9.5pt;font-family:Consolas;color:black;background:white'> dist
+= abs(Genes[i]-Genes[j]);</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
+color:black;background:white'>                    </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
+color:black;background:white'>   </span><span style='font-size:9.5pt;
+font-family:Consolas;color:green;background:white'>//a collision occurs if 2
+genes are on the same row OR</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
+color:green;background:white'>   //the absolute distance between the genes
+matches their grid distance</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
+color:black;background:white'>    </span><span style='font-size:9.5pt;
+font-family:Consolas;color:blue;background:white'>if</span><span
+style='font-size:9.5pt;font-family:Consolas;color:black;background:white'>(
+dist == 0 || dist == j-i)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
+color:black;background:white'>          ++collisions;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
+color:black;background:white'>  }</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;text-autospace:none'><span style='font-size:9.5pt;font-family:Consolas;
+color:black;background:white'>}</span></p>
+
+<h2><span style='font-size:9.5pt;line-height:115%;font-family:Consolas;
+color:black;background:white'>fitness = 28 - collisions;</span></h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><span lang=DE>Spiel Ablauf:</span></h1>
+
+<p class=MsoNormal><span lang=DE><img width=337 height=569
+src="Algorithm.png"></span></p>
+
+<h1><span lang=DE>Auswertung Auswirkung Genmutation:</span></h1>
+
+<p class=MsoNormal>Die folgenden Diagramme zeigen, wie viele Nachkommen erzeugt
+werden mussten, um eine Lösung zu erhalten. Um mehr statistische Aussagekraft
+über die Effizienz der jeweiligen Einstellungsart zu erhalten, wurden 10.000
+Lösungen generiert (in der x-Achse aufgetragen). Die Anzahl der benötigten
+Zwillinge (y-Achse) wird zum jeweiligen Durchgang aufgetragen:</p>
+
+<p class=MsoNormal><img width=866 height=418 id="Chart 1"
+src="Evaluation-Top5-Gen1.png"></p>
+
+<p class=MsoNormal><b>Diagramm 1:</b> Nachkommen (Zwillinge) wurden nur aus den
+5% fittesten Eltern erzeugt. Es wurde lediglich 1 Gen mutiert. Die
+durchschnittlich benötigte Anzahl von Zwillingen beträgt 90247.</p>
+
+<p class=MsoNormal><img width=863 height=416
+src="Evaluation-Top5-Gen2.png"></p>
+
+<p class=MsoNormal><b>Diagramm 2:</b> Nachkommen (Zwillinge) wurden nur aus den
+5% fittesten Eltern erzeugt. Es wurden pro Kind 2 Gene mutiert. Die
+durchschnittlich benötigte Anzahl von Zwillingen beträgt 92530.</p>
+
+<h3><span lang=DE><br>
+Interpretation von Diagramm 1 und Diagramm 2:</span></h3>
+
+<p class=MsoNormal><span lang=DE>Die 2 Diagramme unterscheiden sich nur durch
+die Anzahl der mutierten Gene. Die Gene der Kinder wurden immer zufällig
+mutiert: per Zufallszahlgenerator wird einer der 8 Gene ausgewählt und zufällig
+auf eine Zahl zwischen [0, .. 7] gesetzt.</span></p>
+
+<p class=MsoNormal><span lang=DE>Es zeigt sich, dass sich die zufällige
+Mutation von zwei Genen negativ auf die Lösungsfindung auswirkt, als wenn nur 1
+Gen zufällig mutiert wird!</span></p>
+
+<h1><span lang=DE>Auswertung Auswirkung Kombination der Fittesten:</span></h1>
+
+<p class=MsoNormal><img width=866 height=418
+src="Evaluation-All-Parents.png"></p>
+
+<p class=MsoNormal><b>Diagramm 3:</b> Nachkommen (Zwillinge) wurden aus
+irgendwelchen (Top 100%) Eltern erzeugt. Es wurde lediglich 1 Gen mutiert. Die
+durchschnittlich benötigte Anzahl von Zwillingen beträgt 92248.</p>
+
+<h3><span lang=DE>Interpretation von Diagramm 1 und Diagramm 3:</span></h3>
+
+<p class=MsoNormal><span lang=DE>Die 2 Diagramme unterscheiden sich nur durch
+die Auswahl der Eltern. Während beim 1. Diagramm für die Nachkommen nur die 5%
+besten Eltern in Frage kommen, wurde diese Spanne bei der dritten Auswertung
+auf die ganze Population ausgeweitet.</span></p>
+
+<p class=MsoNormal><span lang=DE>Es zeigt sich, dass sich die Eingrenzung auf
+die 5% fitteste Population im Durchschnitt ca. 2000 weniger Nachkommen bedarf
+um eine Lösung zu finden!</span></p>
+
+</div>
+
+</body>
+
+</html>
