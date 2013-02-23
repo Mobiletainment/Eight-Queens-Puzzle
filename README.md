@@ -7,6 +7,8 @@ What is it?
 Possible solutions of the [8 Queens Puzzle](http://en.wikipedia.org/wiki/Eight_queens_puzzle) are solved by a genetic algorithm.
 First, a population of 1000 genomes, each with a random solving constellations, is created. Then, 2 genomes with a high fitness (good solving constellation) are taken and their genes crossed and mutated to create successors with a hopefully better solving constellation.
 
+![Screenshot](/docs/Screenshot.png?raw=true)
+
 Requirements
 ------------
 What you need for compiling:
